@@ -8,6 +8,7 @@
         padding: 20px;
         margin-right: 40px;
         margin-bottom: 40px;
+       
     }
     &__title {
         font-size: 22px;
@@ -28,6 +29,10 @@
         span {
             font-weight: 700;
         }
+        &_Icon {
+            width: 80px;
+            height:80px; 
+        }
     }
     &__btn {
         width: 150px;
@@ -39,4 +44,21 @@
         font-size: 16px;
         cursor: pointer;
     }
+    &__block_info {
+        display: flex;
+        justify-content: space-between;
+    }
+
+  
+}
+
+
+.salads {
+    background: url("./img/salad1.png") 100%/100% no-repeat;
+}
+.meat {
+    background: url("./img/meat.png") 100%/100% no-repeat;
+}
+.pizza {
+    background: url("./img/pizza.png") 100%/100% no-repeat;
 }
