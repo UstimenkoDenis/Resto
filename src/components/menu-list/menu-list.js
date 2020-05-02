@@ -15,7 +15,7 @@ class MenuList extends Component {
     componentDidMount() {
      
         this.props.menuRequested();     // выполняем actionCreater - меню запрошено (loading = true)
-
+// результат операции - объект который сразу диспетчится коннектом
         const {RestoService} = this.props; // приходит из Provider
 
         RestoService.getMenuItems()
