@@ -2,10 +2,15 @@ import React from 'react';
 import './cart-table.scss';
 import {connect} from 'react-redux';
 import { deleteFromCart } from '../../actions';
+import WithRestoService from '../hoc';
 
-const CartTable = ({items, deleteFromCart}) => {
-    return (
+const CartTable = ({items, deleteFromCart, RestoService}) => {
+    if( items.length === 0){
+        return (<div className="cart__title"> Ваша корзина пуста :( </div>)
+    }
+   return (
         <>
+           
             <div className="cart__title">Ваш заказ:</div>
             <div className="cart__list">
                 {
@@ -24,8 +29,10 @@ const CartTable = ({items, deleteFromCart}) => {
                         )
                         
                     })
+                    
                 }
             </div>
+            <button onClick = {() => RestoService.setOrder(makeOrder(items)) } className = "cart__btn">Order</button>
         </>
     );
 };
@@ -35,8 +42,19 @@ const mapStateToProps = ({items}) => {
         items
     }
 };
-const mapDispatchToProps = {
+const mapDispatchToProps = {  // сюда передаем actionCreators которые будем диспетчить в connecte
    
     deleteFromCart
 }
-export default connect(mapStateToProps, mapDispatchToProps)(CartTable);
+const makeOrder = (items) => {
+    const newOrder = items.map( item => {
+        return {
+            id: item.id,
+            numberOf: item.numberOf
+        }
+        return newOrder;
+        
+    })
+}
+
+export default WithRestoService()(connect(mapStateToProps, mapDispatchToProps)(CartTable));
