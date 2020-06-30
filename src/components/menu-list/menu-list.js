@@ -7,26 +7,19 @@ import {menuLoaded, menuRequested, menuError, addedToCart} from '../../actions';
 import Spinner from '../spinner';
 import Error from '../error';
 
-
-
-
 class MenuList extends Component {
 
-    componentDidMount() {
-     
-        this.props.menuRequested();     // выполняем actionCreater - меню запрошено (loading = true)
-// результат операции - объект который сразу диспетчится коннектом
-        const {RestoService} = this.props; // приходит из Provider
+    componentDidMount() {     
+        this.props.menuRequested();    
+        const {RestoService} = this.props; 
 
         RestoService.getMenuItems()
-            .then(res => this.props.menuLoaded(res)) // помещаем загруженный объект в actionCreater для изменения меню, loading = false
+            .then(res => this.props.menuLoaded(res)) 
             .catch(error => this.props.menuError());
-
     }
 
-    render() {
-    
-        const {menuItems, loading, error, addedToCart} = this.props; // приходит в пропс из connect 
+    render() {    
+        const {menuItems, loading, error, addedToCart} = this.props; 
 
         if(error){
             return (
@@ -36,22 +29,20 @@ class MenuList extends Component {
         if(loading){
             return <Spinner/>
         }
-        ///////////////////////////// Вынесли эту логику отдельно //////////////////////////////////
+        
         const items = menuItems.map(menuItem => { // сформировал массив items
                        return  <MenuListItem 
                                     key = {menuItem.id}
                                     menuItem = {menuItem}
                                     onAddToCart = {() => addedToCart(menuItem.id)}/>
-                    })
-
-        //////////////////////////////////////////////////////////////////////////////////////////////            
+                    })               
         return (    
             <View items = {items}/>
         ) 
         
     }
 };
-const mapStateToProps = (state) => { // для получения данных из state
+const mapStateToProps = (state) => { 
     return {
         menuItems: state.menu,
         loading: state.loading,
@@ -59,7 +50,7 @@ const mapStateToProps = (state) => { // для получения данных �
     }
 }
  
-const mapDispatchToProps = {  // для добавления данных
+const mapDispatchToProps = { 
    menuLoaded,
    menuRequested,
    menuError,
