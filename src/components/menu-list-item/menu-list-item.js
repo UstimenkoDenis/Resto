@@ -18,11 +18,9 @@ const MenuListItem = ({menuItem, onAddToCart}) => {
                             <button onClick = {() => onAddToCart()} className="menu__btn">Add to cart</button>
                         </div>
                         <div className = {`menu__category_Icon ${category}`}></div> 
-                    </div>
-                
-                
+                    </div>               
             </li>
     )
-} // без всякой логики при помощи классов отображаем иконку
+} 
 
 export default MenuListItem;
