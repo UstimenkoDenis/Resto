@@ -19,10 +19,8 @@ const App = () => {
                     component = {CartPage}/>
                 <Route
                     path = '/:id'
-                    component = {ItemPage}/>
-                
-           </Switch>
-           
+                    component = {ItemPage}/>                
+           </Switch>           
         </div>
     )
 }
