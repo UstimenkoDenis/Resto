@@ -9,7 +9,7 @@ import './itemPage.css';
 class ItemPage extends Component {
 
     componentDidMount() {
-        if( this.props.menuItems.length === 0){ // если пустой  - загружаем
+        if( this.props.menuItems.length === 0){ 
             this.props.menuRequested();
 
             const {RestoService} = this.props;
