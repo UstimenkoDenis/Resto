@@ -14,7 +14,7 @@ import './index.scss';
 
 const restoService = new RestoService();
 
-ReactDOM.render( //провайдер - границы ошибки - контекст передачи restoService - навигатор - приложение
+ReactDOM.render( 
     <Provider store = {store}>
         <ErrorBoundry>        
             <RestoServiceContext.Provider value = {restoService}>
