@@ -9,8 +9,7 @@ const CartTable = ({items, deleteFromCart, RestoService}) => {
         return (<div className="cart__title"> Ваша корзина пуста :( </div>)
     }
    return (
-        <>
-           
+        <>           
             <div className="cart__title">Ваш заказ:</div>
             <div className="cart__list">
                 {
@@ -28,8 +27,7 @@ const CartTable = ({items, deleteFromCart, RestoService}) => {
                             </div>
                         )
                         
-                    })
-                    
+                    })                    
                 }
             </div>
             <button onClick = {() => RestoService.setOrder(makeOrder(items)) } className = "cart__btn">Order</button>
@@ -42,8 +40,7 @@ const mapStateToProps = ({items}) => {
         items
     }
 };
-const mapDispatchToProps = {  // сюда передаем actionCreators которые будем диспетчить в connecte
-   
+const mapDispatchToProps = {     
     deleteFromCart
 }
 const makeOrder = (items) => {
@@ -52,8 +49,7 @@ const makeOrder = (items) => {
             id: item.id,
             numberOf: item.numberOf
         }
-        return newOrder;
-        
+        return newOrder;        
     })
 }
 
