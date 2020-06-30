@@ -1,7 +1,7 @@
 const menuLoaded = (newMenu) => {
     return {
         type: 'MENU_LOADED',
-        payload: newMenu       // payload - обычно так называется что мы будем менять
+        payload: newMenu       
     }
 }
 const menuRequested = () => {
