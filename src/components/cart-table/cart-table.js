@@ -15,8 +15,7 @@ const CartTable = ({items, deleteFromCart, RestoService}) => {
                 {
                     items.map(item => {
                         const {title, price, url, id, numberOf} = item;
-                        const randKey = Math.floor(Math.random()*100000);
-                        
+                        const randKey = Math.floor(Math.random()*100000);                        
                         return (
                             <div key = {randKey} className="cart__item">
                                 <img src= {url} className = "cart__item-img" alt = {title}></img>
@@ -25,8 +24,7 @@ const CartTable = ({items, deleteFromCart, RestoService}) => {
                                 <div className = "cart__item-amount">{`Количество ${numberOf}`}</div>
                                 <div onClick = {() => deleteFromCart(id)} className="cart__close">&times;</div>
                             </div>
-                        )
-                        
+                        )                        
                     })                    
                 }
             </div>
