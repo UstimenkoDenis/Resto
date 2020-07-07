@@ -30,7 +30,7 @@ class MenuList extends Component {
             return <Spinner/>
         }
         
-        const items = menuItems.map(menuItem => { // сформировал массив items
+        const items = menuItems.map(menuItem => { 
                        return  <MenuListItem 
                                     key = {menuItem.id}
                                     menuItem = {menuItem}

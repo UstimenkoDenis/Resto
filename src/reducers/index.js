@@ -4,7 +4,7 @@ const initialState = {
    error: false,
    items: [],
    total: 0        
-
+}
 const reducer = (state = initialState, action) => {
     switch (action.type) {
         case 'MENU_LOADED':
@@ -13,7 +13,6 @@ const reducer = (state = initialState, action) => {
                 menu: action.payload,
                 loading: false,
                 error: false
-
             }
         case 'MENU_REQUESTED' : 
         
